@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
             List<Animal> Animals = new List<Animal>();
@@ -64,14 +65,19 @@
                             }
                             break;
                         case 4:
-                            
-                            Console.WriteLine("DescribeAnimal (name only):");
-                            ZooUtility.DescribeAnimal("");
-                            Console.WriteLine("DescribeAnimal (name and species):");
-                            ZooUtility.DescribeAnimal("", "");
-                            Console.WriteLine("DescribeAnimal (name, species, and age):");
-                            ZooUtility.DescribeAnimal("", "", 12);
-                            Console.WriteLine(); // for spacing
+                            foreach (Animal animal in Animals)
+                            {
+                                Console.WriteLine(); // for spacing
+                                Console.WriteLine("DescribeAnimal (name only):");
+                                ZooUtility.DescribeAnimal(animal.Name);
+                                Console.WriteLine(); // for spacing
+                                Console.WriteLine("DescribeAnimal (name and species):");
+                                ZooUtility.DescribeAnimal(animal.Name, animal.Species);
+                                Console.WriteLine(); // for spacing
+                                Console.WriteLine("DescribeAnimal (name, species, and age):");
+                                ZooUtility.DescribeAnimal(animal.Name, animal.Species, 12);
+                                Console.WriteLine(); // for spacing
+                            }
                             break;
                         case 5:
                             Console.WriteLine("Goodbye!");
